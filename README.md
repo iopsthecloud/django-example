@@ -2,7 +2,7 @@ Django on OpenShift
 ===================
 
 This git repository helps you get up and running quickly w/ a Django
-installation on OpenShift.  The Django project name used in this repo
+installation on OpenShift Online.  The Django project name used in this repo
 is 'localbosc' but you can feel free to change it.  Right now the
 backend is sqlite3 and the database runtime is found in
 `$OPENSHIFT_DATA_DIR/db.sqlite3`.
@@ -52,7 +52,7 @@ Select the version of python (2.7 or 3.3) and create a application
 Add this upstream repo
 
     cd django
-    git remote add upstream -m master git://github.com/openshift/django-example.git
+    git remote add upstream -m master git://github.com/alfresanc/django-example.git
     git pull -s recursive -X theirs upstream master
 
 Then push the repo upstream
@@ -75,3 +75,11 @@ Use `rhc ssh` to log into python gear and run this command:
 You should be now able to login at:
 
 	http://django-$yournamespace.rhcloud.com/admin/
+
+Solving problems caused by default Django version of OpenShift
+----------------------------
+After create application, connect troughth SSH and upgrade Django:
+    
+    $ pip install -U Django
+
+Then restart your App and get fun.
