@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'encuestas/style.css' %}" />
+
+{% if lista_ultimas_preguntas %}
+    <ul>
+    {% for pregunta in lista_ultimas_preguntas %}
+        {# <li><a href="/encuestas/{{ pregunta.id }}/">{{ pregunta.texto_pregunta }}</a></li> #}
+        <li><a href="{% url 'encuestas:detail' pregunta.id %}">{{ pregunta.texto_pregunta }}</a></li>
+    {% endfor %}
+    <div>“Dormía y soñé que la vida era belleza; desperté y advertí que es deber”</div>
+    </ul>
+{% else %}
+    <p>No hay encuestas disponibles.</p>
+{% endif %}

@@ -1,0 +1,9 @@
+<h1>{{ pregunta.texto_pregunta }}</h1>
+
+<ul>
+{% for respuesta in pregunta.respuesta_set.all %}
+    <li>{{ respuesta.texto_respuesta }} Lleva: {{ respuesta.votos }} votos</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'encuestas:detail' pregunta.id %}">Votar otra vez</a>
