@@ -68,6 +68,7 @@ That's it. You can now checkout your application at:
 
 Admin user name and password
 ----------------------------
+
 Use `rhc ssh` to log into python gear and run this command:
 
 	python $OPENSHIFT_REPO_DIR/wsgi/localbosc/manage.py createsuperuser
@@ -76,10 +77,13 @@ You should be now able to login at:
 
 	http://django-$yournamespace.rhcloud.com/admin/
 
-Solving problems caused by default Django version of OpenShift
+Solved problems caused by default Django version of OpenShift
 ----------------------------
-After create application, connect troughth SSH and upgrade Django:
-    
-    $ pip install -U Django
 
-Then restart your App and get fun.
+Added command to upgrade Django, to be executed while the application is stopped before the deploy step:
+In: action_hooks/build 
+
+$ pip install -U Django
+
+(This projects has only been tested with the Python 2.7 cartridge)
+

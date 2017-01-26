@@ -6,4 +6,5 @@
 
 # Activate VirtualEnv in order to use the correct libraries
 
+# Command to solve server issues due to django old version:
 pip install -U Django
